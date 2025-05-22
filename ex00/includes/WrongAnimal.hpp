@@ -6,7 +6,7 @@
 /*   By: hfilipe- <hfilipe-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 15:16:35 by hfilipe-          #+#    #+#             */
-/*   Updated: 2025/05/22 15:25:24 by hfilipe-         ###   ########.fr       */
+/*   Updated: 2025/05/22 19:55:47 by hfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class WrongAnimal{
         WrongAnimal& operator=(const WrongAnimal &other);
         virtual ~WrongAnimal();
 
-        void virtual    makeSound() const;
+        void            makeSound() const;
         std::string     getType() const;
         
     protected:

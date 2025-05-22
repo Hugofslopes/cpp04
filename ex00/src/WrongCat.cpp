@@ -6,7 +6,7 @@
 /*   By: hfilipe- <hfilipe-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 15:12:18 by hfilipe-          #+#    #+#             */
-/*   Updated: 2025/05/22 15:40:14 by hfilipe-         ###   ########.fr       */
+/*   Updated: 2025/05/22 19:57:21 by hfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ WrongCat::WrongCat(){
     std::cout << "WrongCat constructor" << std::endl;
 }
 
-WrongCat::WrongCat(const WrongCat &other){
+WrongCat::WrongCat(const WrongCat &other) : WrongAnimal() {
     type = other.type;
     std::cout << "WrongCat Copy constructor" << std::endl;
 }

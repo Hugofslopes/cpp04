@@ -6,7 +6,7 @@
 /*   By: hfilipe- <hfilipe-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 13:16:11 by hfilipe-          #+#    #+#             */
-/*   Updated: 2025/05/22 15:34:52 by hfilipe-         ###   ########.fr       */
+/*   Updated: 2025/05/22 19:56:54 by hfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ Cat::Cat() {
     std::cout << "Cat constructor" << std::endl;
 }
 
-Cat::Cat(const Cat &other){
+Cat::Cat(const Cat &other) : Animal(){
     type = other.type;
     std::cout << "Cat Copy constructor" << std::endl;
 }
