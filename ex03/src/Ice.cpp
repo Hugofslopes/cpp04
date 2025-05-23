@@ -6,7 +6,7 @@
 /*   By: hfilipe- <hfilipe-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 09:56:59 by hfilipe-          #+#    #+#             */
-/*   Updated: 2025/05/23 10:23:55 by hfilipe-         ###   ########.fr       */
+/*   Updated: 2025/05/23 15:33:49 by hfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,18 @@
 
 Ice::Ice(){
 	type = "ice";
+	std::cout << "Ice default constructor called" << std::endl;
 }
 
-Ice::Ice(const Ice& ice){
+Ice::Ice(const Ice& ice) : AMateria(){
 	this->type = ice.type;
+	std::cout << "Ice copy constructor called" << std::endl;
 }
 
 Ice&  Ice::operator=(const Ice& ice){
 	if (this != &ice)
 		this->type = ice.type;
+	std::cout << "Ice copy assigment constructor called" << std::endl;
 	return (*this);
 }
 
@@ -31,5 +34,6 @@ AMateria* Ice::clone() const {
 }
 
 void Ice::use(ICharacter& target) const{
-	std::cout << "Cure: * heals " << target.getName() << "’s wounds *" << std::endl;
+	std::cout << "Ice: * shoots an ice bolt at " << target.getName() << "*" 
+	<< std::endl;
 }

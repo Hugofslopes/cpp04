@@ -6,7 +6,7 @@
 /*   By: hfilipe- <hfilipe-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 09:56:44 by hfilipe-          #+#    #+#             */
-/*   Updated: 2025/05/23 10:23:44 by hfilipe-         ###   ########.fr       */
+/*   Updated: 2025/05/23 15:33:58 by hfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,22 @@
 
 Cure::Cure(){
 	type = "cure";
+	std::cout << "Cure default constructor called" << std::endl;
 }
 
-Cure::Cure(const Cure& cure){
+Cure::Cure(const Cure& cure) : AMateria(){
 	this->type = cure.type;
+	std::cout << "Cure copy constructor called" << std::endl;
 }
 
-Cure&  Cure::operator=(const Cure& cure){
+Cure& Cure::operator=(const Cure& cure) {
 	if (this != &cure)
 		this->type = cure.type;
+	std::cout << "Cure copy assignment constructor called" << std::endl;
 	return (*this);
+}
+Cure::~Cure(){
+	std::cout << "Cure destructor called" << std::endl;
 }
 
 AMateria* Cure::clone() const {
@@ -31,5 +37,6 @@ AMateria* Cure::clone() const {
 }
 
 void Cure::use(ICharacter& target) const{
-	std::cout << "Ice: * shoots an ice bolt at" << target.getName() << "*";
+	std::cout << "Cure: * heals " << target.getName() << "’s wounds *" 
+	<< std::endl;
 }
