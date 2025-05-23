@@ -6,7 +6,7 @@
 /*   By: hfilipe- <hfilipe-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 10:40:38 by hfilipe-          #+#    #+#             */
-/*   Updated: 2025/05/23 15:25:56 by hfilipe-         ###   ########.fr       */
+/*   Updated: 2025/05/23 18:55:41 by hfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,9 @@ Character::Character(std::string const name) {
 Character::Character(const Character& other) : ICharacter() {
 	this->name = other.name;
 	for(size_t i = 0; i < 4; i++)
+		if (materias[i] != NULL)
+			delete materias[i];
+	for(size_t i = 0; i < 4; i++)
 		materias[i] = other.materias[i];
 	std::cout << "Character copy constructor called" << std::endl;
 }
@@ -30,6 +33,9 @@ Character& Character::operator=(const Character& other) {
 	if (this != &other){
 		this->name = other.name;
 		for(size_t i = 0; i < 4; i++)
+			if (materias[i] != NULL)
+				delete materias[i];
+		for(size_t i = 0; i < 4; i++)
 			materias[i] = other.materias[i];
 	}
 	std::cout << "Character copy assignment constructor called" << std::endl;
@@ -37,6 +43,9 @@ Character& Character::operator=(const Character& other) {
 }
 
 Character::~Character() {
+	for (size_t i = 0; i < 4; i++)
+		if (materias[i] != NULL)
+			delete materias[i];
 	std::cout << "Character destructor called" << std::endl;
 }
 
@@ -46,10 +55,9 @@ std::string const & Character::getName() const {
 
 void Character::equip(AMateria* m) {
 	size_t i = 0;
-	for (; i < 4 ; i++)
-		if (materias[i] == NULL)
-			break;
-	if ( i == 3 && materias[i] == NULL){
+	for (; i < 4  && materias[i] != NULL ; i++)
+		;
+	if (i == 3 && materias[i] == NULL){
 		std::cerr << "The Character inventory is full" << std::endl;
 		return ;
 	}
