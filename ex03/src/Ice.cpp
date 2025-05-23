@@ -1,28 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ICharacter.hpp                                     :+:      :+:    :+:   */
+/*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hfilipe- <hfilipe-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/22 21:44:40 by hfilipe-          #+#    #+#             */
-/*   Updated: 2025/05/23 10:30:27 by hfilipe-         ###   ########.fr       */
+/*   Created: 2025/05/23 09:56:59 by hfilipe-          #+#    #+#             */
+/*   Updated: 2025/05/23 10:23:55 by hfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ICHARACTER_HPP
-# define ICHARACTER_HPP
+#include "../includes/Ice.hpp"
 
-# include <iostream>
-# include "../includes/Amateria.hpp"
+Ice::Ice(){
+	type = "ice";
+}
 
-class ICharacter
-{
-		public:
-			virtual ~ICharacter() {}
-			virtual std::string const & getName() const = 0;
-			virtual void equip(AMateria* m) = 0;
-			virtual void unequip(int idx) = 0;
-			virtual void use(int idx, ICharacter& target) = 0;
-};
-#endif
+Ice::Ice(const Ice& ice){
+	this->type = ice.type;
+}
+
+Ice&  Ice::operator=(const Ice& ice){
+	if (this != &ice)
+		this->type = ice.type;
+	return (*this);
+}
+
+AMateria* Ice::clone() const {
+	return new Ice(*this);
+}
+
+void Ice::use(ICharacter& target) const{
+	std::cout << "Cure: * heals " << target.getName() << "’s wounds *" << std::endl;
+}

@@ -1,35 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Amateria.hpp                                       :+:      :+:    :+:   */
+/*   Character.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hfilipe- <hfilipe-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/22 21:40:13 by hfilipe-          #+#    #+#             */
-/*   Updated: 2025/05/23 11:52:44 by hfilipe-         ###   ########.fr       */
+/*   Created: 2025/05/23 10:26:51 by hfilipe-          #+#    #+#             */
+/*   Updated: 2025/05/23 11:25:07 by hfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef AMATERIA_HPP
-# define AMATERIA_HPP
+#ifndef CHARACTER_HPP
+# define CHARACTER_HPP
 
 # include <iostream>
-# include "ICharacter.hpp"
+# include "../includes/ICharacter.hpp"
 
-class AMateria
+class Character : ICharacter
 {
-	protected:
-		std::string type;
-
 	public:
-		AMateria();
-		AMateria(std::string const & type);
-		AMateria(const AMateria& materia);
-		AMateria& operator=(const AMateria& materia);
-		virtual ~AMateria();
+		Character(std::string const name);
+		~Character();
+		std::string const & getName() const;
+		void equip(AMateria* m);
+		void unequip(int idx);
+		void use(int idx, ICharacter& target);
 
-		std::string const & getType() const;
-		virtual AMateria* clone() const = 0;
-		virtual void use(ICharacter& target) const = 0;
+	private:
+		AMateria* materias[4];
+		std::string name;
+		unsigned int value;
 };
 #endif
