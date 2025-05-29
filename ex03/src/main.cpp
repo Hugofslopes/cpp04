@@ -6,7 +6,7 @@
 /*   By: hfilipe- <hfilipe-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 11:48:14 by hfilipe-          #+#    #+#             */
-/*   Updated: 2025/05/23 19:08:29 by hfilipe-         ###   ########.fr       */
+/*   Updated: 2025/05/29 10:24:05 by hfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ int main()
 		IMateriaSource* src = new MateriaSource();
 		src->learnMateria(new Ice());
 		src->learnMateria(new Cure());
+		std::cout << std::endl;
+
 		ICharacter* me = new Character("me");
 		AMateria* tmp;
 		tmp = src->createMateria("ice");
@@ -37,6 +39,8 @@ int main()
 		tmp = src->createMateria("cure");
 		me->equip(tmp);
 		ICharacter* bob = new Character("bob");
+		std::cout << std::endl;
+		
 		me->use(0, *bob);
 		me->use(1, *bob);
 		std::cout << std::endl;
@@ -53,9 +57,12 @@ int main()
 		AMateria* m2 = source.createMateria("ice");
 		AMateria* m3 = source.createMateria("fire");
 		std::cout << std::endl;
-		if (m1) std::cout << "Created a materia of type: " << m1->getType() << std::endl;
-		if (m2) std::cout << "Created a materia of type: " << m2->getType() << std::endl;
-		if (m3 == NULL) std::cout << "Failed to create unknown materia type 'fire'." << std::endl;
+		if (m1) 
+			std::cout << "Created a materia of type: " << m1->getType() << std::endl;
+		if (m2) 
+			std::cout << "Created a materia of type: " << m2->getType() << std::endl;
+		if (m3 == NULL) 
+			std::cout << "Failed to create unknown materia type 'fire'." << std::endl;
 		std::cout << std::endl;
 		delete m1;
 		delete m2;

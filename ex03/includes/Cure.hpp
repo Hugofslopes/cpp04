@@ -6,7 +6,7 @@
 /*   By: hfilipe- <hfilipe-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 09:50:29 by hfilipe-          #+#    #+#             */
-/*   Updated: 2025/05/23 15:43:48 by hfilipe-         ###   ########.fr       */
+/*   Updated: 2025/05/29 10:20:17 by hfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,5 @@ class Cure : public AMateria
 
 		AMateria* clone() const;
 		void use(ICharacter& target) const;
-	
-	private:
-		ICharacter *iCharacter;
 };
 #endif

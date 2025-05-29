@@ -6,7 +6,7 @@
 /*   By: hfilipe- <hfilipe-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 09:50:09 by hfilipe-          #+#    #+#             */
-/*   Updated: 2025/05/23 10:22:43 by hfilipe-         ###   ########.fr       */
+/*   Updated: 2025/05/29 10:20:18 by hfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,5 @@ class Ice : public AMateria
 
 		AMateria* clone() const;
 		void use(ICharacter& target) const;
-		
-	private:
-		ICharacter *iCharacter;
 };
 #endif
